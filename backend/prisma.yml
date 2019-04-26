@@ -1,0 +1,8 @@
+#endpoint: ${env:PRISMA_ENDPOINT}
+
+endpoint: https://honeyfields-prod-53ecda5bcc.herokuapp.com/honeyfields-art-prod/prod
+datamodel: datamodel.prisma
+secret: ${env:PRISMA_SECRET}
+hooks:
+  post-deploy:
+    - graphql get-schema -p prisma generate

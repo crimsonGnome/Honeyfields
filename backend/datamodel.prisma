@@ -1,0 +1,89 @@
+enum Permission {
+  ADMIN
+  USER
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
+}
+
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  shippingAddress: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission] @scalarList(strategy: RELATION)
+  cart: [CartItem!]!
+  adminView: Boolean @default(value: false)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Item {
+  id: ID! @unique
+  title: String!
+  description: String!
+  image: [String] @scalarList(strategy: RELATION)
+  largeImage: [String] @scalarList(strategy: RELATION)
+  price: Int!
+  user: User!
+  sold: Boolean! @default(value: false)
+  recurringItem: Boolean @default(value: false)
+  customOrder: Boolean @default(value: false)
+  orderFormat: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type CartItem {
+  id: ID! @unique
+  quantity: Int! @default(value: 1)
+  item: Item #relationship to Item
+  user: User! #realtionship to the CLient
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type OrderItem {
+  id: ID! @unique
+  title: String!
+  description: String!
+  image: [String]! @scalarList(strategy: RELATION)
+  largeImage: [String] @scalarList(strategy: RELATION)
+  price: Int!
+  quantity: Int! @default(value: 1)
+  user: User
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Order {
+  id: ID! @unique
+  items: [OrderItem]!
+  total: Int!
+  user: User!
+  userName: String!
+  shippingAddress: String!
+  charge: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Filter {
+  id: ID! @unique
+  filter: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Event {
+  id: ID! @unique
+  title: String
+  description: String
+  image: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
