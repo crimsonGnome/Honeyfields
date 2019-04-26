@@ -82,6 +82,5 @@ type User {
   shippingAddress: String!
   permissions: [Permission!]!
   cart: [CartItem!]!
-  orders: [OrderItem]
   adminView: Boolean
 }
