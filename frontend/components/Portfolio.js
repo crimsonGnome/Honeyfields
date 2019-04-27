@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import Pagination from './Pagination';
 import { portPage } from '../config';
 import FilterList from './FilterList';
-import { Body, Center, ItemList } from './Items';
+import { Body, Center } from './styles/BodyLayout';
 import { ViewImagePort } from './ImageGalleryPort';
 import ViewImageStyles from './styles/ViewImageStyles';
 
@@ -77,58 +77,10 @@ class Items extends Component {
             {({ data, error, loading }) => {
               if (loading) return <p>Loading...</p>;
               if (error) return <p>Error: {error.message}</p>;
+              if (!data || data.items.length === 0) return <p>no data</p>;
               return (
                 <ViewImageStyles className="port">
                   <section className="gallery">
-                    {data.items.map(item => (
-                      <ViewImagePort
-                        item={item}
-                        key={item.id}
-                        classItem={randomItemGen()}
-                      />
-                    ))}
-                    {data.items.map(item => (
-                      <ViewImagePort
-                        item={item}
-                        key={item.id}
-                        classItem={randomItemGen()}
-                      />
-                    ))}
-                    {data.items.map(item => (
-                      <ViewImagePort
-                        item={item}
-                        key={item.id}
-                        classItem={randomItemGen()}
-                      />
-                    ))}
-                    {data.items.map(item => (
-                      <ViewImagePort
-                        item={item}
-                        key={item.id}
-                        classItem={randomItemGen()}
-                      />
-                    ))}
-                    {data.items.map(item => (
-                      <ViewImagePort
-                        item={item}
-                        key={item.id}
-                        classItem={randomItemGen()}
-                      />
-                    ))}
-                    {data.items.map(item => (
-                      <ViewImagePort
-                        item={item}
-                        key={item.id}
-                        classItem={randomItemGen()}
-                      />
-                    ))}
-                    {data.items.map(item => (
-                      <ViewImagePort
-                        item={item}
-                        key={item.id}
-                        classItem={randomItemGen()}
-                      />
-                    ))}
                     {data.items.map(item => (
                       <ViewImagePort
                         item={item}

@@ -34,9 +34,9 @@ class ViewImage extends Component {
         )}
 
         <section>
-          <div class="item">
+          <div className="item">
             <img src={this.props.image} />
-            <div class="item__overlay" onClick={this.handleClick}>
+            <div className="item__overlay" onClick={this.handleClick}>
               <button>View →</button>
             </div>
           </div>
@@ -87,9 +87,9 @@ class ViewImagePort extends Component {
           </div>
         )}
 
-        <div class={this.props.classItem}>
+        <div className={this.props.classItem}>
           <img src={this.props.item.image[0]} />
-          <div class="item__overlay" onClick={this.handleClick}>
+          <div className="item__overlay" onClick={this.handleClick}>
             <button>View →</button>
           </div>
         </div>

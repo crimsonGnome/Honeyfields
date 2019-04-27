@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import { InnerFilter, FilterOverlay } from './styles/BodyLayout';
+import { FilterOverlay, InnerFilter } from './styles/Filter.Styles';
 
 const FITLER_LIST = gql`
   query FITLER_LIST {
@@ -14,15 +14,15 @@ const FITLER_LIST = gql`
 `;
 
 const FilterList = props => {
-  let path = '/index';
+  let path = 'index';
   if (props.custom) {
     switch (props.custom) {
       case 'recurringItem':
-        pathname = '/custom';
+        path = 'custom';
         break;
 
       default:
-        pathname = '/portfolio';
+        path = 'portfolio';
     }
   }
   return (
@@ -52,75 +52,39 @@ class Filter extends Component {
       <Query query={FITLER_LIST}>
         {({ data, error }) => {
           if (error) return <p>Error: {error.message}</p>;
-          console.log(data.filters);
+
           return (
             <>
-              {this.state.ariaControl && (
-                <>
-                  <button onClick={this.handleChange} aria-controls="menu-list">
-                    <span className="close">×</span>
-                  </button>
-                  <div
-                    className="filter"
-                    aria-expanded={this.state.ariaControl}
-                  >
-                    <h2 aria-expanded={this.state.ariaControl}>
-                      Search Filter List
-                    </h2>
-                    <ul
-                      className="filterStyles"
-                      aria-expanded={this.state.ariaControl}
-                    >
-                      {data.filters.map(item => (
-                        <li key={item.id}>
-                          <Link
-                            prefetch
-                            href={{
-                              pathname: pathname,
-                              query: { filter: item.filter }
-                            }}
-                          >
-                            <a>{item.filter}</a>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </>
-              )}
-              {!this.state.ariaControl && (
-                <>
-                  <button onClick={this.handleChange} aria-controls="menu-list">
-                    <span className="open">Filters ☰</span>
-                  </button>
-                  <div
-                    className="filter"
-                    aria-expanded={this.state.ariaControl}
-                  >
-                    <h2 aria-expanded={this.state.ariaControl}>
-                      Search Filter List
-                    </h2>
-                    <ul
-                      className="filterStyles"
-                      aria-expanded={this.state.ariaControl}
-                    >
-                      {data.filters.map(item => (
-                        <li key={item.id}>
-                          <Link
-                            prefetch
-                            href={{
-                              pathname: pathname,
-                              query: { filter: item.filter }
-                            }}
-                          >
-                            <a>{item.filter}</a>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </>
-              )}
+              <button onClick={this.handleChange} aria-controls="menu-list">
+                {this.state.ariaControl ? (
+                  <span className="close">×</span>
+                ) : (
+                  <span className="open">☰</span>
+                )}
+              </button>
+              <div className="filter" aria-expanded={this.state.ariaControl}>
+                <h2 aria-expanded={this.state.ariaControl}>
+                  Search Filter List
+                </h2>
+                <ul
+                  className="filterStyles"
+                  aria-expanded={this.state.ariaControl}
+                >
+                  {data.filters.map(item => (
+                    <li key={item.id}>
+                      <Link
+                        prefetch
+                        href={{
+                          pathname: pathname,
+                          query: { filter: item.filter }
+                        }}
+                      >
+                        <a>{item.filter}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </>
           );
         }}

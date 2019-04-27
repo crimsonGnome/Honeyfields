@@ -53,7 +53,7 @@ export default class Item extends Component {
                   ) : (
                     <Link
                       href={{
-                        pathname: '/customOrder',
+                        pathname: 'customOrder',
                         query: { id: item.id }
                       }}
                     >

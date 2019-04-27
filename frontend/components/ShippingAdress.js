@@ -34,9 +34,8 @@ const Filter = props => (
         <ul>
           {me && (
             <>
-              <FilterCRUD key={me.id} id={me.id} item={me.name} update="name" />
+              <FilterCRUD id={me.id} item={me.name} update="name" />
               <FilterCRUD
-                key={me.id}
                 id={me.id}
                 item={me.shippingAddress}
                 update="shipping"

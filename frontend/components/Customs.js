@@ -5,11 +5,11 @@ import Item from './Custom';
 import Pagination from './Pagination';
 import { perPage } from '../config';
 import FilterList from './FilterList';
-import { Body, Center, ItemList } from './Items';
+import { Body, Center, ItemList } from './styles/BodyLayout';
 
 const ALL_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY($recurringItem: Boolean = true, $skip: Int = 0, $first: Int= ${perPage} ) {
-    items(where: {recurringItem: $recurringItem}, first: $first, skip:$skip, orderBy:createdAt_DESC ) {
+  query ALL_ITEMS_QUERY($skip: Int = 0, $first: Int= ${perPage} ) {
+    items(where: {recurringItem: true}, first: $first, skip:$skip, orderBy:createdAt_DESC ) {
       id
       title
       price
@@ -63,7 +63,7 @@ class Items extends Component {
               if (loading) return <p>Loading...</p>;
               if (error) return <p>Error: {error.message}</p>;
               if (!data || data.items.length === 0) return <p>no data</p>;
-              console.log(data);
+
               return (
                 <ItemList>
                   {data.items.map(item => (

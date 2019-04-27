@@ -181,7 +181,6 @@ const Pagination = props => {
 
           default:
             count = data.itemsConnection.aggregate.count;
-            console.log(count);
         }
         let pages = Math.ceil(count / perPage);
         if (props.portfolio) {

@@ -38,7 +38,6 @@ class Items extends Component {
     let ItemsQuery = ALL_ITEMS_QUERY;
 
     if (this.props.filter) {
-      const filter = this.props.filter;
       ItemsQuery = FILTER_ITEMS_QUERY;
     }
     return (
@@ -63,6 +62,7 @@ class Items extends Component {
             {({ data, error, loading }) => {
               if (loading) return <p>Loading...</p>;
               if (error) return <p>Error: {error.message}</p>;
+              if (!data || data.items.length === 0) return <p>no data</p>;
               return (
                 <ItemList>
                   {data.items.map(item => (
@@ -86,6 +86,3 @@ class Items extends Component {
 export default Items;
 export { ALL_ITEMS_QUERY };
 export { FILTER_ITEMS_QUERY };
-export { Body };
-export { Center };
-export { ItemList };
