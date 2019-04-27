@@ -14,7 +14,7 @@ const FITLER_LIST = gql`
 `;
 
 const FilterList = props => {
-  let path = 'index';
+  let path = '/';
   if (props.custom) {
     switch (props.custom) {
       case 'recurringItem':
@@ -70,7 +70,7 @@ class Filter extends Component {
                   className="filterStyles"
                   aria-expanded={this.state.ariaControl}
                 >
-                  {/* {data.filters.map(item => (
+                  {data.filters.map(item => (
                     <li key={item.id}>
                       <Link
                         prefetch
@@ -82,7 +82,7 @@ class Filter extends Component {
                         <a>{item.filter}</a>
                       </Link>
                     </li>
-                  ))} */}
+                  ))}
                 </ul>
               </div>
             </>
