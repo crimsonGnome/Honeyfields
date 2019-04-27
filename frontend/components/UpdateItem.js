@@ -73,15 +73,17 @@ class UpdateItem extends Component {
 
   updateItem = async (e, updateItemMutation) => {
     e.preventDefault();
-    console.log('updating Item!!');
-    console.log(this.state);
     const res = await updateItemMutation({
       variables: {
         id: this.props.id,
         ...this.state
       }
     });
-    console.log('Updated!!');
+
+    Router.push({
+      pathname: '/product',
+      query: { id: res.data.updateItem.id }
+    });
   };
   render() {
     return (
@@ -163,8 +165,6 @@ class UpdateItem extends Component {
                         type="number"
                         id="orderFormat"
                         name="orderFormat"
-                        placeholder="orderFormat"
-                        required
                         value={data.item.orderFormat}
                         onChange={this.handleChange}
                       />
