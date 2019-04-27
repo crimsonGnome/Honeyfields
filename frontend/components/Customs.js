@@ -46,11 +46,11 @@ class Items extends Component {
       <Body className="body">
         <FilterList custom="recurringItem" className="sd" />
         <Center className="main">
-          {this.props.filter ? (
-            <Pagination custom={this.props.filter} page={this.props.page} />
-          ) : (
-            <Pagination custom="recurringItem" page={this.props.page} />
-          )}
+          <Pagination
+            custom={this.props.filter || 'recurringItem'}
+            page={this.props.page}
+          />
+
           <Query
             query={ItemsQuery}
             // fetchPolicy="network-only"
@@ -74,11 +74,10 @@ class Items extends Component {
               );
             }}
           </Query>
-          {this.props.filter ? (
-            <Pagination custom={this.props.filter} page={this.props.page} />
-          ) : (
-            <Pagination custom="recurringItem" page={this.props.page} />
-          )}
+          <Pagination
+            custom={this.props.filter || 'recurringItem'}
+            page={this.props.page}
+          />
         </Center>
       </Body>
     );
