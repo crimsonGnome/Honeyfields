@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import styled from 'styled-components';
 import Item from './Custom';
 import Pagination from './Pagination';
 import { perPage } from '../config';
@@ -44,7 +43,7 @@ class Items extends Component {
 
     return (
       <Body className="body">
-        <FilterList custom="recurringItem" className="sd" />
+        {/* <FilterList custom="recurringItem" className="sd" /> */}
         <Center className="main">
           <Pagination
             custom={this.props.filter || 'recurringItem'}
