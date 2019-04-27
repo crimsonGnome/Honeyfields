@@ -50,7 +50,8 @@ class Filter extends Component {
     const pathname = this.props.pathname;
     return (
       <Query query={FITLER_LIST}>
-        {({ data, error }) => {
+        {({ data, loading, error }) => {
+          if (loading) return <p>Loading...</p>;
           if (error) return <p>Error: {error.message}</p>;
 
           return (
@@ -73,6 +74,7 @@ class Filter extends Component {
                   {data.filters.map(item => (
                     <li key={item.id}>
                       <Link
+                        prefetch
                         href={{
                           pathname: pathname,
                           query: { filter: item.filter }
