@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import { FilterOverlay, InnerFilter } from './styles/Filter.Styles';
+import { InnerFilter, FilterOverlay } from './styles/BodyLayout';
 
 const FITLER_LIST = gql`
   query FITLER_LIST {
@@ -14,10 +14,9 @@ const FITLER_LIST = gql`
 `;
 
 const FilterList = props => {
-  let pathname = '/index';
+  let path = '/index';
   if (props.custom) {
-    let filter = props.custom;
-    switch (filter) {
+    switch (props.custom) {
       case 'recurringItem':
         pathname = '/custom';
         break;
@@ -30,7 +29,7 @@ const FilterList = props => {
     <FilterOverlay>
       <div className="shell">
         <InnerFilter>
-          <Filter pathname={pathname} />
+          <Filter pathname={path} />
         </InnerFilter>
       </div>
     </FilterOverlay>
