@@ -42,7 +42,7 @@ class Items extends Component {
     }
     return (
       <Body className="body">
-        {/* <FilterList className="sd" /> */}
+        <FilterList className="sd" />
         <Center className="main">
           {this.props.filter ? (
             <Pagination filter={this.props.filter} page={this.props.page} />
