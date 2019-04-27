@@ -43,7 +43,7 @@ class Items extends Component {
 
     return (
       <Body className="body">
-        {/* <FilterList custom="recurringItem" className="sd" /> */}
+        <FilterList custom="recurringItem" className="sd" />
         <Center className="main">
           <Pagination
             custom={this.props.filter || 'recurringItem'}
