@@ -48,7 +48,12 @@ class OrderList extends Component {
       <Center>
         <User>
           {({ data: { me } }) => (
-            <Query query={USER_ORDERS_QUERY}>
+            <Query
+              query={USER_ORDERS_QUERY}
+              variables={{
+                skip: this.props.page * perPage - perPage
+              }}
+            >
               {({ data: { orders }, loading, error }) => {
                 if (loading) return <p>loading...</p>;
                 if (error) return <Error error={error} />;
@@ -59,7 +64,8 @@ class OrderList extends Component {
                         <Query query={ALL_ORDERS_QUERY}>
                           {({ data: { ordersConnection } }) => (
                             <h2>
-                              You have {ordersConnection.aggregate.count} Orders
+                              You have {ordersConnection.aggregate.count}
+                              Toatal Orders
                             </h2>
                           )}
                         </Query>
@@ -68,9 +74,10 @@ class OrderList extends Component {
                     ) : (
                       <>
                         <Query query={ORDERS_QUERY}>
-                          {({ data: { ordersConnection } }) => (
+                          {({ data: { ordersConnectionUser } }) => (
                             <h2>
-                              You have {ordersConnection.aggregate.count} Orders
+                              You have {ordersConnectionUser.aggregate.count}{' '}
+                              Orders
                             </h2>
                           )}
                         </Query>

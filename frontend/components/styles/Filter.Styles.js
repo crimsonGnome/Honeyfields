@@ -93,6 +93,7 @@ const InnerFilter = styled.div`
 
 const FilterOverlay = styled.div`
   grid-area: sd;
+  min-height: 80vh;
   background-image: ${props => props.theme.red};
   box-shadow: 1px solid ${props => props.theme.brown};
 

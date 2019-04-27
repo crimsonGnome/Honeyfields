@@ -124,7 +124,7 @@ const Pagination = props => {
     paginationQuery = PAGINATION_QUERY_SEARCH;
   }
   if (props.portfolio) {
-    switch (filter) {
+    switch (props.portfolio) {
       case 'portfolio':
         paginationQuery = PAGINATION_QUERY_PORTFOLIO;
         break;
@@ -151,13 +151,14 @@ const Pagination = props => {
     paginationQuery = EVENTS_QUERY;
   }
   if (props.orders) {
-    typeQuery = 'orders';
     switch (props.orders) {
       case 'admin':
+        typeQuery = 'orders';
         paginationQuery = ALL_ORDERS_QUERY;
         break;
 
       default:
+        typeQuery = 'userOrders';
         paginationQuery = ORDERS_QUERY;
     }
   }
@@ -174,9 +175,13 @@ const Pagination = props => {
           case 'orders':
             count = data.ordersConnection.aggregate.count;
             break;
+          case 'userOrders':
+            count = data.ordersConnectionUser.aggregate.count;
+            break;
 
           default:
             count = data.itemsConnection.aggregate.count;
+            console.log(count);
         }
         let pages = Math.ceil(count / perPage);
         if (props.portfolio) {

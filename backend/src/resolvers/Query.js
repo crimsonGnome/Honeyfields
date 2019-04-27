@@ -60,7 +60,11 @@ const Query = {
   async orders(parent, args, ctx, info) {
     const { userId } = ctx.request;
     loggedIn(ctx.request.userId);
-    if (ctx.request.user.adminView === true) {
+
+    const hasPermissionToSeeOrder = ctx.request.user.permissions.includes(
+      'ADMIN'
+    );
+    if (hasPermissionToSeeOrder) {
       return ctx.db.query.orders({}, info);
     }
 
