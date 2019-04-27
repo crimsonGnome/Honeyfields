@@ -73,7 +73,6 @@ class Filter extends Component {
                   {data.filters.map(item => (
                     <li key={item.id}>
                       <Link
-                        prefetch
                         href={{
                           pathname: pathname,
                           query: { filter: item.filter }
