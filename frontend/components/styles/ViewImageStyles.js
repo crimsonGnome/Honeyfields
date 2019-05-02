@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const ViewImageStyles = styled.div`
+  text-align: right;
   .port {
     display: grid;
     grid-template-columns: 1fr;
@@ -9,12 +10,8 @@ const ViewImageStyles = styled.div`
     width: 80vw;
   }
   .close {
-    background: none;
-    color: black;
-    border: 0;
-    align-self: left;
+    border-radius: 3px;
   }
-
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, 100px);
@@ -116,7 +113,6 @@ const ViewImageStyles = styled.div`
   .overlay-img-container {
     height: 90vh;
     display: grid;
-    overflow: scroll;
   }
   .overlay-img {
     grid-column: 1 / -1;

@@ -21,7 +21,9 @@ const CartStyles = styled.div`
   header {
     border-bottom: 5px solid ${props => props.theme.honey};
     margin-bottom: 2rem;
-    padding-bottom: 2rem;
+  }
+  h5 {
+    margin-bottom: 0.5rem;
   }
   footer {
     border-top: 10px double ${props => props.theme.honey};
@@ -40,6 +42,8 @@ const CartStyles = styled.div`
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+  .cart {
     overflow: scroll;
   }
   @media (${props => props.theme.phoneView}) {

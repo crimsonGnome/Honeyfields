@@ -61,7 +61,6 @@ injectGlobal`
   }
   .script{
     font-family: scriptCookie;
-    text-shadow: 2px 2px rgba(38, 29, 26, 0.5), 4px 4px 8px rgba(0, 9, 114);
   }
 `;
 

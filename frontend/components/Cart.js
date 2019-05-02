@@ -5,7 +5,7 @@ import { adopt } from 'react-adopt';
 import User from './User';
 import CartStyles from './styles/CartStyles';
 import Supreme, { FilterHeader } from './styles/Supreme';
-import { CustomTitle } from './styles/Title';
+import regExpressionName from '../lib/regExpressionName';
 import CloseButton from './styles/CloseButton';
 import SickButton from './styles/SickButton';
 import CartItem from './CartItem';
@@ -46,7 +46,7 @@ const Cart = () => {
                 &times;
               </CloseButton>
               <FilterHeader>
-                <Supreme>{me.name}'s Cart</Supreme>
+                <Supreme>{regExpressionName(me.name)} Cart</Supreme>
               </FilterHeader>
               <ShippingAdress />
               <p>
@@ -54,7 +54,7 @@ const Cart = () => {
                 {me.cart.length === 1 ? '' : 's'} in you cart.
               </p>
             </header>
-            <ul>
+            <ul className="cart">
               {me.cart.map(cartItem => (
                 <CartItem key={cartItem.id} cartItem={cartItem} />
               ))}

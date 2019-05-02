@@ -192,7 +192,7 @@ const Pagination = props => {
           <PaginationStyles data-test="pagination">
             <Head>
               <title>
-                Honeyfeilds {page} of {pages}
+                Honeyfields {page} of {pages}
               </title>
             </Head>
             {filter ? (

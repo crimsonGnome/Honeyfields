@@ -33,7 +33,7 @@ const Dot = styled.div`
   color: white;
   border-radius: 50%;
   padding: 0;
-  min-width: 3rem;
+  min-width: 2rem;
   margin-left: 1rem;
   font-weight: 100;
   font-feature-settings: 'tnum';

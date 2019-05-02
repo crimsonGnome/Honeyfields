@@ -4,7 +4,7 @@ const SickButton = styled.button`
   background: ${props => props.theme.honeyButton};
   color: white;
   border: 0;
-  border-radius: 0;
+  border-radius: 3px;
   text-transform: uppercase;
   font-size: 2rem;
   padding: 0.8rem 1.5rem;
@@ -22,7 +22,7 @@ const SickButtonView = styled.span`
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 9, 114);
     border: 0;
-    border-radius: 0;
+    border-radius: 3px;
     text-transform: uppercase;
     font-size: 2rem;
     padding: 0.8rem 1.5rem;

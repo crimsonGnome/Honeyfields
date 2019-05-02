@@ -9,10 +9,12 @@ import CartCount from './CartCount';
 import { Component } from 'react';
 
 const Logo = styled.h1`
+  display: grid;
   @font-face {
     font-family: 'honeyFields';
     src: url('/static/ValsdayScript-DEMO.ttf');
   }
+  align-self: center;
   font-size: 7rem;
   margin: 1rem;
   position: relative;
@@ -33,10 +35,11 @@ const Logo = styled.h1`
     text-align: center;
   }
   @media (${props => props.theme.phoneView}) {
-    font-size: 4rem;
     align-self: center;
     margin: 0;
     a {
+      line-height: 0.8;
+      font-size: 5rem;
       align-self: center;
     }
   }
@@ -58,7 +61,7 @@ class Nav extends Component {
             {!this.state.ariaControl && (
               <NavStyles data-test="nav" id="menu-list">
                 <Logo>
-                  <Link href="/">
+                  <Link prefetch href="/">
                     <a className="logo">Honeyfields Artistry</a>
                   </Link>
                 </Logo>
@@ -66,27 +69,27 @@ class Nav extends Component {
                   {!me && (
                     <>
                       <div className="hamburger">
-                        <Link href="/items">
+                        <Link prefetch href="/items">
                           <a aria-expanded={this.state.ariaControl}>Shop</a>
                         </Link>
-                        <Link href="/portfolio">
+                        <Link prefetch href="/portfolio">
                           <a aria-expanded={this.state.ariaControl}>
                             Portfolio
                           </a>
                         </Link>
-                        <Link href="/custom">
+                        <Link prefetch href="/custom">
                           <a aria-expanded={this.state.ariaControl}>
                             Custom Orders
                           </a>
                         </Link>
-                        <Link href="/about">
+                        <Link prefetch href="/about">
                           <a aria-expanded={this.state.ariaControl}>About</a>
                         </Link>
-                        <Link href="/events">
+                        <Link prefetch href="/events">
                           <a aria-expanded={this.state.ariaControl}>Events</a>
                         </Link>
                       </div>
-                      <Link href="/signup">
+                      <Link prefetch href="/signup">
                         <a>Sign In</a>
                       </Link>
                     </>
@@ -95,26 +98,26 @@ class Nav extends Component {
                   {me && (
                     <>
                       <div className="hamburger">
-                        <Link href="/items">
+                        <Link prefetch href="/items">
                           <a aria-expanded={this.state.ariaControl}>Shop</a>
                         </Link>
-                        <Link href="/portfolio">
+                        <Link prefetch href="/portfolio">
                           <a aria-expanded={this.state.ariaControl}>
                             Portfolio
                           </a>
                         </Link>
-                        <Link href="/custom">
+                        <Link prefetch href="/custom">
                           <a aria-expanded={this.state.ariaControl}>
                             Custom Orders
                           </a>
                         </Link>
-                        <Link href="/about">
+                        <Link prefetch href="/about">
                           <a aria-expanded={this.state.ariaControl}>About</a>
                         </Link>
-                        <Link href="/events">
+                        <Link prefetch href="/events">
                           <a aria-expanded={this.state.ariaControl}>Events</a>
                         </Link>
-                        <Link href="/orders">
+                        <Link prefetch href="/orders">
                           <a aria-expanded={this.state.ariaControl}>Orders</a>
                         </Link>
                       </div>
@@ -147,7 +150,7 @@ class Nav extends Component {
                     <div className="flex">
                       <div className="logo">
                         <Logo>
-                          <Link href="/">
+                          <Link prefetch href="/">
                             <a onClick={this.handleChange}>
                               Honeyfields Artistry
                             </a>
@@ -157,7 +160,7 @@ class Nav extends Component {
                           <span className="close">×</span>
                         </button>
                       </div>
-                      <Link href="/items">
+                      <Link prefetch href="/items">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -165,7 +168,7 @@ class Nav extends Component {
                           Shop
                         </a>
                       </Link>
-                      <Link href="/portfolio">
+                      <Link prefetch href="/portfolio">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -173,7 +176,7 @@ class Nav extends Component {
                           Portfolio
                         </a>
                       </Link>
-                      <Link href="/custom">
+                      <Link prefetch href="/custom">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -181,7 +184,7 @@ class Nav extends Component {
                           Custom Orders
                         </a>
                       </Link>
-                      <Link href="/about">
+                      <Link prefetch href="/about">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -189,7 +192,7 @@ class Nav extends Component {
                           About
                         </a>
                       </Link>
-                      <Link href="/events">
+                      <Link prefetch href="/events">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -198,7 +201,7 @@ class Nav extends Component {
                         </a>
                       </Link>
                     </div>
-                    <Link href="/signup">
+                    <Link prefetch href="/signup">
                       <a onClick={this.handleChange}>Sign In</a>
                     </Link>
                   </>
@@ -209,7 +212,7 @@ class Nav extends Component {
                     <div className="flex">
                       <div className="logo">
                         <Logo>
-                          <Link href="/">
+                          <Link prefetch href="/">
                             <a onClick={this.handleChange}>
                               Honeyfields Artistry
                             </a>
@@ -219,7 +222,7 @@ class Nav extends Component {
                           <span className="close">×</span>
                         </button>
                       </div>
-                      <Link href="/items">
+                      <Link prefetch href="/items">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -227,7 +230,7 @@ class Nav extends Component {
                           Shop
                         </a>
                       </Link>
-                      <Link href="/portfolio">
+                      <Link prefetch href="/portfolio">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -235,7 +238,7 @@ class Nav extends Component {
                           Portfolio
                         </a>
                       </Link>
-                      <Link href="/custom">
+                      <Link prefetch href="/custom">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -243,7 +246,7 @@ class Nav extends Component {
                           Custom Orders
                         </a>
                       </Link>
-                      <Link href="/about">
+                      <Link prefetch href="/about">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -251,7 +254,7 @@ class Nav extends Component {
                           About
                         </a>
                       </Link>
-                      <Link href="/events">
+                      <Link prefetch href="/events">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}
@@ -259,7 +262,7 @@ class Nav extends Component {
                           Events
                         </a>
                       </Link>
-                      <Link href="/orders">
+                      <Link prefetch href="/orders">
                         <a
                           onClick={this.handleChange}
                           aria-expanded={this.state.ariaControl}

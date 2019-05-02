@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ViewImageStyles from './styles/ViewImageStyles';
 import Title from './styles/Title';
 import Link from 'next/link';
+import { CloseButtonPic } from './styles/CloseButton';
 
 class ViewImage extends Component {
   state = {
@@ -19,9 +20,9 @@ class ViewImage extends Component {
         {this.state.imageDisplay && (
           <div className="overlay open">
             <div className="overlay-inner">
-              <button className="close" onClick={this.handleClick}>
-                × Close
-              </button>
+              <CloseButtonPic className="close" onClick={this.handleClick}>
+                &times;
+              </CloseButtonPic>
               <br />
               <div className="overlay-img-container">
                 <img
@@ -63,9 +64,9 @@ class ViewImagePort extends Component {
         {this.state.imageDisplay && (
           <div className="overlay open">
             <div className="overlay-inner">
-              <button className="close" onClick={this.handleClick}>
-                × Close
-              </button>
+              <CloseButtonPic className="close" onClick={this.handleClick}>
+                &times;
+              </CloseButtonPic>
               <br />
               <div className="overlay-img-container">
                 <img

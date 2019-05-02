@@ -9,7 +9,10 @@ const AboutPage = styled.div`
   align-self: center;
   div {
     ul {
-      list-style: '🌹';
+      list-style: '🎨';
+      span {
+        margin-left: 1rem;
+      }
     }
     max-width: ${props => props.theme.maxWidth};
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -59,18 +62,28 @@ const About = () => {
   return (
     <AboutPage>
       <div className="paper">
+        <h5>Email us @honeyfields.artistry@gmail.com</h5>
+        <h5>About Me</h5>
         <p>Hi there! I’m Michelle Eggers 😊,</p>
         <p>
-          I started seriously crafting in May 2018, after my boyfriend, San,
-          kept insisting I start, (He’s my biggest fan for my brand), Honeyfield
-          Artistry. As a crafter, I’ve always loved working with different art
-          mediums:
+          I started seriously crafting in May 2018, after my boyfriend, Sanjog,
+          kept insisting I start, (He’s my biggest fan for my brand),
+          Honeyfields Artistry. As a crafter, I’ve always loved working with
+          different art mediums:
         </p>
         <ul>
-          <li>Watercolor</li>
-          <li>Crochet</li>
-          <li>Acrylic paint</li>
-          <li>Modern calligraphy</li>
+          <li>
+            <span>Watercolor</span>
+          </li>
+          <li>
+            <span>Crochet</span>
+          </li>
+          <li>
+            <span>Acrylic paint</span>
+          </li>
+          <li>
+            <span>Modern calligraphy</span>
+          </li>
         </ul>
 
         <p>

@@ -73,7 +73,6 @@ class Admin extends Component {
         variables={{
           adminView: this.state.adminView
         }}
-        refetchQueries={CURRENT_USER_QUERY}
       >
         {(updateUser, { loading, error }) => (
           <>

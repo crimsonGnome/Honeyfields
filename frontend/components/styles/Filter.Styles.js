@@ -10,6 +10,7 @@ const InnerFilter = styled.div`
 
   h2 {
     font-size: 3rem;
+    line-height: 1;
     margin-top: 0;
     text-shadow: 2px 2px 4px rgba(0, 9, 114);
     transform: skew(-5deg) rotate(-1deg);
@@ -44,6 +45,7 @@ const InnerFilter = styled.div`
 
     a {
       font-size: 4rem;
+      text-shadow: 2px 2px 4px rgba(0, 9, 114);
       display: grid;
       justify-content: center;
       display: inline;
@@ -68,8 +70,8 @@ const InnerFilter = styled.div`
       position: fixed;
       right: 5%;
       bottom: 10%;
-      width: 75px;
-      height: 75px;
+      width: 65px;
+      height: 65px;
       border-radius: 100%;
     }
     [aria-expanded='false'] {
@@ -81,7 +83,7 @@ const InnerFilter = styled.div`
 
     .open,
     .close {
-      font-size: 1.6rem;
+      font-size: 2.4rem;
       font-weight: 900;
       color: white;
     }

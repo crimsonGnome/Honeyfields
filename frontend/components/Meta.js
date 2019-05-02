@@ -14,7 +14,7 @@ const Meta = () => (
     <link rel="shortcut icon" href="/static/bee.png" />
 
     <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
-    <title>HoneyFeilds Asrtistry</title>
+    <title>Honeyfields Asrtistry</title>
   </Head>
 );
 

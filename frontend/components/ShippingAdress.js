@@ -11,6 +11,7 @@ const Filterlayout = styled.li`
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-flow: column;
+
   grid-gap: 10px;
   padding: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -21,8 +22,10 @@ const Filterlayout = styled.li`
   }
 
   button {
+    border-radius: 3px;
     background: ${props => props.theme.honeyButton};
     color: white;
+    border: none;
   }
 `;
 
