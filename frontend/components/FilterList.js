@@ -80,7 +80,7 @@ class Filter extends Component {
                           query: { filter: item.filter }
                         }}
                       >
-                        <a>{item.filter}</a>
+                        <a>{item.filter}s</a>
                       </Link>
                     </li>
                   ))}

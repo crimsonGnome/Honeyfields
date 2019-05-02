@@ -92,11 +92,6 @@ const Mutations = {
     //Check if the user has permission to create search Filter
     hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
     const where = { id: args.id };
-    //find item
-
-    if (!ownsItem && !hasPermissions) {
-      throw new Error(`You don't have permission to do that!`);
-    }
 
     //Delete it
     return ctx.db.mutation.deleteItem({ where }, info);

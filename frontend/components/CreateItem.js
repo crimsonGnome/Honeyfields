@@ -93,7 +93,7 @@ class CreateItem extends Component {
               //Change them to single item page
               console.log(res);
               Router.push({
-                pathname: '/item',
+                pathname: '/product',
                 query: { id: res.data.createItem.id }
               });
             }}

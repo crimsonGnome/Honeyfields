@@ -18,7 +18,16 @@ export default class Item extends Component {
     const { item } = this.props;
     return (
       <ItemStyles>
-        {item.image && <img src={item.image[0]} alt={item.title} />}
+        {item.image && (
+          <Link
+            href={{
+              pathname: '/product',
+              query: { id: item.id }
+            }}
+          >
+            <img src={item.image[0]} alt={item.title} />
+          </Link>
+        )}
         <Title>
           <Link
             href={{

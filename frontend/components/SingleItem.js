@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Link from 'next/link';
 import styled from 'styled-components';
+import formatMoney from '../lib/formatMoney';
 import Head from 'next/head';
 import Error from './ErrorMessage';
 import AddToCart from './AddToCart';
@@ -36,6 +37,7 @@ const SINGLE_ITEM_QUERY = gql`
     item(where: { id: $id }) {
       id
       title
+      price
       description
       image
       largeImage
@@ -73,6 +75,7 @@ class SingleItem extends Component {
                 <CustomTitle className="script">
                   Viewing {item.title}
                 </CustomTitle>
+                <h4>Price: {formatMoney(item.price)}</h4>
                 <p>{item.description}</p>
                 <User>
                   {({ data: { me } }) => (
