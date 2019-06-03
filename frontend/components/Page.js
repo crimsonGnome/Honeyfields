@@ -59,9 +59,7 @@ injectGlobal`
     text-decoration: none;
     color: ${theme.black};
   }
-  .script{
-    font-family: scriptCookie;
-  }
+  
 `;
 
 class Page extends Component {

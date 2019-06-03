@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import { FilterOverlay, InnerFilter } from './styles/Filter.Styles';
+import { sRules } from '../lib/regExpressionName';
 
 const FITLER_LIST = gql`
   query FITLER_LIST {
@@ -80,7 +81,7 @@ class Filter extends Component {
                           query: { filter: item.filter }
                         }}
                       >
-                        <a>{item.filter}s</a>
+                        <a>{sRules(item.filter)}</a>
                       </Link>
                     </li>
                   ))}
